@@ -2,6 +2,14 @@
 
 A location-aware platform designed to facilitate interaction, visibility, and participation within defined geographic communities.
 
+# Website Demo(Team-394)
+
+https://drive.google.com/file/d/14GGTN5fB-U8FPKRDEHEPflLCWOk2Rcua/view
+
+
+
+
+
 ## Project Overview
 
 Community Pulse is a web application that helps people discover and participate in local events. It provides features for creating, managing, and attending events within geographic communities.
