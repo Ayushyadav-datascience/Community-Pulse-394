@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --secondary: #ec4899;
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+[data-theme="dark"], .dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  /* Fix for dark mode backgrounds */
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 dark:border-purple-400 dark:text-purple-400 dark:hover:bg-purple-400 dark:hover:text-gray-900;
+  }
+
+  .event-card {
+    @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg;
+  }
+
+  /* Input styles */
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors;
+  }
+
+  /* Form container */
+  .form-container {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700;
+  }
+
+  /* Text styles */
+  .text-primary {
+    @apply text-gray-900 dark:text-white;
+  }
+
+  .text-secondary {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+
+  .text-muted {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+}
+
+/* Gradient background */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+/* Dark mode specific fixes */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --foreground: #f1f5f9;
+  }
+}
+
+/* Scrollbar styling for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+.dark ::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Focus ring improvements */
+@layer utilities {
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800;
+  }
+}
